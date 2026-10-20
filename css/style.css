@@ -1,0 +1,392 @@
+/* Vildbyn – teasersida
+   Färger från loggan: senap (cirkeln) och lera (bokstäverna).
+   Typsnitt: Big Shoulders Display (rubriker), Zilla Slab (text). Båda självhostade, OFL-licens. */
+
+@font-face { font-family: "Big Shoulders"; src: url("../fonts/big-shoulders-display-latin-900-normal.woff2") format("woff2"); font-weight: 900; font-display: swap; }
+@font-face { font-family: "Big Shoulders"; src: url("../fonts/big-shoulders-display-latin-800-normal.woff2") format("woff2"); font-weight: 800; font-display: swap; }
+@font-face { font-family: "Zilla Slab"; src: url("../fonts/zilla-slab-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Zilla Slab"; src: url("../fonts/zilla-slab-latin-400-italic.woff2") format("woff2"); font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: "Zilla Slab"; src: url("../fonts/zilla-slab-latin-600-normal.woff2") format("woff2"); font-weight: 600; font-display: swap; }
+
+:root {
+  --senap: #F5A602;      /* loggans cirkel */
+  --lera: #766555;       /* loggans bokstäver */
+  --lera-mork: #4E4239;  /* lera som klarar läsbarhet på senap */
+  --bark: #241B15;
+  --bark-2: #30251D;
+  --havre: #F1E7D3;
+
+  --rubrik: "Big Shoulders", "Arial Narrow", sans-serif;
+  --text: "Zilla Slab", Rockwell, Georgia, serif;
+  --kant: 1.25rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bark);
+  color: var(--havre);
+  font-family: var(--text);
+  font-size: 1.125rem;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+img, video { display: block; max-width: 100%; }
+
+a { color: inherit; text-decoration-thickness: 2px; text-underline-offset: .18em; }
+a:hover { text-decoration-thickness: 3px; }
+
+:focus-visible { outline: 3px solid currentColor; outline-offset: 3px; }
+
+/* Stämpelkänsla som i loggan: en sömlös textur som nöter bort lite av bokstäverna.
+   Storleken i em gör att slitaget följer textstorleken. Luft upptill så att prickarna på Ö och Ä inte klipps. */
+.stampel {
+  padding-top: .16em;
+  -webkit-mask-image: url("../img/stamp.png");
+          mask-image: url("../img/stamp.png");
+  -webkit-mask-size: 2.6em;
+          mask-size: 2.6em;
+}
+
+/* ---------- Hero ---------- */
+
+.hero {
+  position: relative;
+  min-height: 92vh;
+  min-height: 92svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: calc(env(safe-area-inset-top) + 5.25rem) var(--kant) 2.25rem;
+  overflow: hidden;
+  background: var(--bark);
+  isolation: isolate;
+}
+
+.hero-bakgrund { display: none; }
+
+.hero-film { position: absolute; inset: 0; z-index: -2; }
+.film { width: 100%; height: 100%; object-fit: cover; }
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    linear-gradient(to bottom, rgba(36, 27, 21, .45) 0%, rgba(36, 27, 21, 0) 22%),
+    linear-gradient(to top, rgba(36, 27, 21, .92) 0%, rgba(36, 27, 21, .55) 22%, rgba(36, 27, 21, 0) 48%);
+}
+
+.hero-text {
+  flex: 1;
+  width: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: inherit;
+}
+
+.hero-logga {
+  width: clamp(9.5rem, 44vw, 14rem);
+  height: auto;
+  transform: rotate(-8deg);
+  filter: drop-shadow(0 .5rem 1.25rem rgba(0, 0, 0, .35));
+}
+
+.hero-oppnar {
+  font-family: var(--rubrik);
+  font-weight: 900;
+  font-size: clamp(3.4rem, 17vw, 11rem);
+  line-height: .82;
+  letter-spacing: .005em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--senap);
+}
+
+.hero-under {
+  margin: .75rem 0 0;
+  font-style: italic;
+  font-size: clamp(1.05rem, 4.2vw, 1.375rem);
+  text-align: center;
+  color: var(--havre);
+}
+
+.filmknappar {
+  position: absolute;
+  top: calc(env(safe-area-inset-top) + .9rem);
+  right: .9rem;
+  display: flex;
+  gap: .5rem;
+}
+
+.filmknapp {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  min-height: 2.75rem;
+  padding: .45rem .9rem .45rem .7rem;
+  border: 1px solid rgba(241, 231, 211, .4);
+  border-radius: 999px;
+  background: rgba(36, 27, 21, .55);
+  -webkit-backdrop-filter: blur(6px);
+          backdrop-filter: blur(6px);
+  color: var(--havre);
+  font: 600 .95rem/1 var(--text);
+  cursor: pointer;
+}
+.filmknapp:hover { background: rgba(36, 27, 21, .8); }
+.filmknapp[hidden] { display: none; }
+
+.ikon { width: 1.25rem; height: 1.25rem; fill: currentColor; flex: none; }
+#ljud .ikon-vag { display: none; }
+#ljud[aria-pressed="true"] .ikon-vag { display: inline; }
+#ljud[aria-pressed="true"] .ikon-kryss { display: none; }
+#paus .ikon-spela { display: none; }
+#paus[aria-pressed="true"] .ikon-spela { display: inline; }
+#paus[aria-pressed="true"] .ikon-paus { display: none; }
+
+/* Bredare skärmar: filmen står upp i mitten, en suddig kopia fyller ut bakom */
+@media (min-aspect-ratio: 4/5) {
+  .hero { padding-top: calc(env(safe-area-inset-top) + 2.5rem); }
+
+  .hero-bakgrund {
+    display: block;
+    position: absolute;
+    inset: 0;
+    z-index: -3;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: .62;
+    transform: scale(1.08);
+  }
+
+  .hero-film {
+    left: 50%;
+    right: auto;
+    width: auto;
+    aspect-ratio: 9 / 16;
+    transform: translateX(-50%);
+    box-shadow: 0 0 5rem rgba(0, 0, 0, .55);
+  }
+
+  .hero::after {
+    background:
+      linear-gradient(to top, rgba(36, 27, 21, .9) 0%, rgba(36, 27, 21, .45) 20%, rgba(36, 27, 21, 0) 42%);
+  }
+
+  .hero-logga {
+    width: min(26svh, 15rem);
+    transform: translateX(-26svh) rotate(-8deg);
+  }
+
+  .hero-oppnar { font-size: min(12vw, 20svh); }
+}
+
+/* ---------- Om ---------- */
+
+.om {
+  background: var(--senap);
+  color: var(--bark);
+  padding: clamp(4rem, 11vw, 8rem) var(--kant);
+}
+
+.om-inner {
+  max-width: 64rem;
+  margin: 0 auto;
+  display: grid;
+  gap: 1.5rem 4rem;
+}
+
+.om h2 {
+  margin: 0;
+  font-family: var(--rubrik);
+  font-weight: 900;
+  font-size: clamp(3.25rem, 13vw, 7rem);
+  line-height: .88;
+  color: var(--lera-mork);
+  text-wrap: balance;
+}
+
+.om-text { max-width: 34em; }
+.om-text p { margin: 0 0 1.1em; }
+.om-text p:last-child { margin-bottom: 0; }
+
+.ps {
+  margin-top: 2rem !important;
+  padding-top: 1.25rem;
+  border-top: 2px dashed rgba(36, 27, 21, .45);
+  font-style: italic;
+  font-size: 1.25rem;
+}
+.ps-tecken {
+  font-family: var(--rubrik);
+  font-weight: 900;
+  font-style: normal;
+  font-size: 1.6em;
+  line-height: 1;
+  margin-right: .2em;
+  color: var(--lera-mork);
+}
+
+@media (min-width: 56rem) {
+  .om-inner { grid-template-columns: 5fr 6fr; align-items: start; }
+  .om-text { padding-top: .6rem; }
+}
+
+/* ---------- Äventyr ---------- */
+
+.aventyr {
+  padding: clamp(4.5rem, 12vw, 8.5rem) var(--kant);
+  text-align: center;
+}
+
+.aventyr h2,
+.bilder h2 {
+  margin: 0 auto;
+  max-width: 22em;
+  font-weight: 400;
+  font-style: italic;
+  font-size: clamp(1.25rem, 4.6vw, 1.625rem);
+  line-height: 1.3;
+  color: var(--senap);
+}
+
+.affisch {
+  list-style: none;
+  margin: 1.75rem auto 0;
+  padding: 0;
+  max-width: 60rem;
+  font-family: var(--rubrik);
+  font-weight: 900;
+  line-height: 1.02;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+.affisch li { margin: 0; }
+.affisch li:nth-child(odd) { color: var(--havre); }
+.affisch li:nth-child(even) { color: var(--senap); }
+.affisch .s1 { font-size: clamp(2.5rem, 11.5vw, 7.5rem); }
+.affisch .s2 { font-size: clamp(2.25rem, 10vw, 6rem); }
+.affisch .s3 { font-size: clamp(1.6rem, 6.5vw, 3.75rem); font-weight: 800; }
+
+.affisch-fot {
+  margin: 2rem auto 0;
+  max-width: 24em;
+  text-wrap: balance;
+  font-style: italic;
+  color: rgba(241, 231, 211, .82);
+}
+
+/* ---------- Bilder ---------- */
+
+.bilder {
+  background: var(--bark-2);
+  padding: clamp(4rem, 10vw, 7rem) 0 clamp(3.5rem, 9vw, 6rem);
+  text-align: center;
+}
+.bilder h2 { padding: 0 var(--kant); }
+
+.bildremsa {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+  padding: 1.5rem var(--kant) 1.75rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding: 0 var(--kant);
+  scrollbar-width: thin;
+  scrollbar-color: rgba(241, 231, 211, .3) transparent;
+  -webkit-overflow-scrolling: touch;
+}
+
+.bildremsa figure {
+  flex: 0 0 min(72vw, 22rem);
+  margin: 0;
+  scroll-snap-align: center;
+}
+
+.bildremsa img {
+  width: 100%;
+  height: auto;
+  border: .45rem solid var(--havre);
+  background: var(--havre);
+  box-shadow: 0 .75rem 2rem rgba(0, 0, 0, .4);
+}
+.bildremsa figure:nth-child(6n+1) img { transform: rotate(-2deg); }
+.bildremsa figure:nth-child(6n+2) img { transform: rotate(1.5deg); }
+.bildremsa figure:nth-child(6n+3) img { transform: rotate(-1deg); }
+.bildremsa figure:nth-child(6n+4) img { transform: rotate(2deg); }
+.bildremsa figure:nth-child(6n+5) img { transform: rotate(-1.5deg); }
+.bildremsa figure:nth-child(6n+6) img { transform: rotate(1deg); }
+
+.bildremsa figcaption {
+  margin-top: 1rem;
+  font-style: italic;
+  font-size: 1.05rem;
+  line-height: 1.35;
+  color: var(--havre);
+}
+
+@media (min-width: 60rem) {
+  .bildremsa {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3.5rem 3rem;
+    max-width: 68rem;
+    margin: 2.5rem auto 0;
+    overflow: visible;
+  }
+}
+
+/* ---------- Fot ---------- */
+
+.fot {
+  background: var(--senap);
+  color: var(--bark);
+  text-align: center;
+  padding: clamp(4.5rem, 12vw, 8rem) var(--kant) calc(env(safe-area-inset-bottom) + 2rem);
+}
+
+.fot-rubrik {
+  margin: 0;
+  font-family: var(--rubrik);
+  font-weight: 900;
+  font-size: clamp(3.75rem, 19vw, 11rem);
+  line-height: .85;
+  text-transform: uppercase;
+  color: var(--lera-mork);
+}
+
+.fot-lankar {
+  list-style: none;
+  margin: 2rem 0 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: .75rem;
+}
+.fot-lankar a {
+  display: inline-block;
+  padding: .6rem 1.25rem;
+  border: 2px solid var(--bark);
+  border-radius: 999px;
+  font-weight: 600;
+  text-decoration: none;
+}
+.fot-lankar a:hover { background: var(--bark); color: var(--senap); }
+
+.fot-backwoods { margin: 2rem auto 0; max-width: 28em; }
+.fot-backwoods a { font-weight: 600; }
+
+.fot-liten { margin: 3.5rem 0 0; font-size: .9rem; }

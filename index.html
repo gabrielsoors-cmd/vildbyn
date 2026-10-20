@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Vildbyn – äventyrsbutik och bar i Älvdalen. Öppnar 2027</title>
+  <meta name="description" content="Vildbyn blir en äventyrsbutik med bar mitt i Älvdalen. Köp grejerna, hyr det du glömde hemma och boka äventyret. Vi öppnar 2027.">
+  <link rel="canonical" href="https://vildbyn.se/">
+  <meta name="theme-color" content="#241B15">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="sv_SE">
+  <meta property="og:site_name" content="Vildbyn">
+  <meta property="og:title" content="Vildbyn öppnar 2027">
+  <meta property="og:description" content="Äventyrsbutik och bar mitt i Älvdalen. Vi är inte klara än, men nästan.">
+  <meta property="og:url" content="https://vildbyn.se/">
+  <meta property="og:image" content="https://vildbyn.se/img/vildbyn-delning.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Vildbyns logga och texten Öppnar 2027 över en pickup på en grusväg i skogen">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="img/ikon-180.png">
+
+  <link rel="preload" href="fonts/big-shoulders-display-latin-900-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="img/vildbyn-logga.webp" as="image" type="image/webp">
+  <link rel="stylesheet" href="css/style.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Vildbyn",
+    "url": "https://vildbyn.se/",
+    "logo": "https://vildbyn.se/img/ikon-512.png",
+    "description": "Äventyrsbutik med bar i Älvdalen. Öppnar 2027.",
+    "address": { "@type": "PostalAddress", "addressLocality": "Älvdalen", "addressCountry": "SE" }
+  }
+  </script>
+</head>
+<body>
+
+  <header class="hero">
+    <video class="hero-bakgrund" data-src="media/vildbyn-film-oskarp.mp4" poster="media/vildbyn-film-oskarp-poster.jpg" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1"></video>
+
+    <div class="hero-film">
+      <video id="film" class="film" muted loop playsinline preload="auto"
+             poster="media/vildbyn-film-poster.jpg"
+             aria-label="Film från en dag med Vildbyn: bastu, korv vid elden, skjutbana, pickup och Volvo 245 på grusvägar i skogen">
+        <source src="media/vildbyn-film-720.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <h1 class="hero-text">
+      <img class="hero-logga" src="img/vildbyn-logga.webp" alt="Vildbyn" width="500" height="500">
+      <span class="hero-oppnar stampel">Öppnar 2027</span>
+    </h1>
+    <p class="hero-under">Äventyr, butik och bar i Älvdalen</p>
+
+    <div class="filmknappar">
+      <button type="button" class="filmknapp" id="paus" aria-pressed="false" hidden>
+        <svg class="ikon" viewBox="0 0 24 24" aria-hidden="true"><path class="ikon-paus" d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z"/><path class="ikon-spela" d="M7 4.5v15l12.5-7.5z"/></svg>
+        <span class="filmknapp-text">Pausa</span>
+      </button>
+      <button type="button" class="filmknapp" id="ljud" aria-pressed="false">
+        <svg class="ikon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z"/><path class="ikon-vag" d="M15 9.2a4 4 0 0 1 0 5.6M17.6 6.8a7.4 7.4 0 0 1 0 10.4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path class="ikon-kryss" d="M15.5 9.5l5 5m0-5l-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        <span class="filmknapp-text">Ljud på</span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="om" aria-labelledby="om-rubrik">
+      <div class="om-inner">
+        <h2 id="om-rubrik">Vi är inte klara än.</h2>
+        <div class="om-text">
+          <p>Men när vi är det blir Vildbyn en äventyrsbutik med bar mitt i Älvdalen. Här köper du grejerna, hyr det du glömde hemma och bokar dagens äventyr. Sen tar vi en öl och snackar om hur det gick.</p>
+          <p>Det blir vilt, det blir roligt och det blir inte så jäkla noga.</p>
+          <p class="ps"><span class="ps-tecken">PS.</span> I baren öppnar vi flaskorna med en uppstoppad älgröv. Mer än så säger vi inte just nu.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="aventyr" aria-labelledby="aventyr-rubrik">
+      <h2 id="aventyr-rubrik">Sånt vi håller på att snickra ihop</h2>
+      <!-- VB-AVENTYR: ändra listan här. Klasserna s1–s3 styr storleken (s1 störst). -->
+      <ul class="affisch">
+        <li class="s1">Volvo 245 på grusväg</li>
+        <li class="s2">Bastuflotte</li>
+        <li class="s3">Ring i älven</li>
+        <li class="s2">Älgsafari</li>
+        <li class="s3">Kanot och SUP</li>
+        <li class="s2">Paintball</li>
+        <li class="s3">Fisketur med guide</li>
+        <li class="s2">Skjutbana</li>
+      </ul>
+      <p class="affisch-fot">…och en del annat som vi inte hunnit hitta på än.</p>
+    </section>
+
+    <section class="bilder" aria-labelledby="bilder-rubrik">
+      <h2 id="bilder-rubrik">En helt vanlig dag i skogen</h2>
+      <div class="bildremsa">
+        <figure>
+          <img src="img/vildbyn-korv-vid-tjarnen-600.webp" srcset="img/vildbyn-korv-vid-tjarnen-600.webp 600w, img/vildbyn-korv-vid-tjarnen-1200.webp 1200w" sizes="(min-width: 60rem) 30vw, 72vw" width="600" height="800" loading="lazy" decoding="async" alt="Ett träfat med grillad korv med rödlök och dressing, framför en tjärn med granskog">
+          <figcaption>Lunch med utsikt.</figcaption>
+        </figure>
+        <figure>
+          <img src="img/vildbyn-korv-i-skogen-600.webp" srcset="img/vildbyn-korv-i-skogen-600.webp 600w, img/vildbyn-korv-i-skogen-1200.webp 1200w" sizes="(min-width: 60rem) 30vw, 72vw" width="600" height="800" loading="lazy" decoding="async" alt="En kvinna i mössa tar ett stort bett av en korv i skogen, kompisar i bakgrunden">
+          <figcaption>Korv smakar bäst i skogen. Det är bevisat.</figcaption>
+        </figure>
+        <figure>
+          <img src="img/vildbyn-skjutbanan-600.webp" srcset="img/vildbyn-skjutbanan-600.webp 600w, img/vildbyn-skjutbanan-1200.webp 1200w" sizes="(min-width: 60rem) 30vw, 72vw" width="600" height="800" loading="lazy" decoding="async" alt="En man i keps siktar med gevär från skjutbanans röda skjutbod">
+          <figcaption>Siktet inställt på 2027.</figcaption>
+        </figure>
+        <figure>
+          <img src="img/vildbyn-flaket-600.webp" srcset="img/vildbyn-flaket-600.webp 600w, img/vildbyn-flaket-1200.webp 1200w" sizes="(min-width: 60rem) 30vw, 72vw" width="600" height="800" loading="lazy" decoding="async" alt="En grönvit Chevrolet-pickup med folk på flaket på en grusväg under höga granar">
+          <figcaption>Det finns plats för fler på flaket.</figcaption>
+        </figure>
+        <figure>
+          <img src="img/vildbyn-volvo-245-600.webp" srcset="img/vildbyn-volvo-245-600.webp 600w, img/vildbyn-volvo-245-1200.webp 1200w" sizes="(min-width: 60rem) 30vw, 72vw" width="600" height="800" loading="lazy" decoding="async" alt="En ljusblå Volvo 245 med extraljus står på ett kalhygge i skogen">
+          <figcaption>Rost är bara patina.</figcaption>
+        </figure>
+        <figure>
+          <img src="img/vildbyn-grusvagen-600.webp" srcset="img/vildbyn-grusvagen-600.webp 600w, img/vildbyn-grusvagen-1200.webp 1200w" sizes="(min-width: 60rem) 30vw, 72vw" width="600" height="800" loading="lazy" decoding="async" alt="Ett gäng går längs en grusväg i skogen mot en parkerad pickup">
+          <figcaption>Asfalt är överskattat.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="fot">
+    <p class="fot-rubrik stampel">Vi ses 2027.</p>
+    <!-- VB-SOCIALA: lägg in rätt adresser och ta bort kommentaren runt listan.
+    <ul class="fot-lankar">
+      <li><a href="https://www.instagram.com/vildbyn/">Instagram</a></li>
+      <li><a href="https://www.facebook.com/vildbyn/">Facebook</a></li>
+    </ul>
+    -->
+    <p class="fot-backwoods">Kan du inte vänta? <a href="https://backwoodsfestival.se/">Backwoods Festival</a> drar igång 15 maj 2027 på Rotsågen.</p>
+    <p class="fot-liten">© 2026 Vildbyn, Älvdalen</p>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>
