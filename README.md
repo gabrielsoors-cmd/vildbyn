@@ -34,7 +34,7 @@ ffmpeg -i ny-film.mov -frames:v 1 -vf "scale=720:1280" -q:v 4 media/vildbyn-film
 
 ## Koppla vildbyn.se
 
-1. Lägg en fil `CNAME` i roten med raden `vildbyn.se`.
+1. Lägg en fil `CNAME` i roten med raden `vildbyn.se`, och byt `https://gabrielsoors-cmd.github.io/vildbyn/` mot `https://vildbyn.se/` i `index.html` (sök efter `VB-ADRESS`). Där står adressen till delningsbilden, som måste vara en fullständig adress.
 2. Hos domänleverantören: A-poster för `vildbyn.se` till 185.199.108.153, 185.199.109.153, 185.199.110.153 och 185.199.111.153, och en CNAME-post för `www` till `gabrielsoors-cmd.github.io`.
 3. I repots Settings → Pages: bocka i "Enforce HTTPS" när certifikatet är klart.
 
