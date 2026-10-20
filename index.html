@@ -46,7 +46,7 @@
     <video class="hero-bakgrund" data-src="media/vildbyn-film-oskarp.mp4" poster="media/vildbyn-film-oskarp-poster.jpg" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1"></video>
 
     <div class="hero-film">
-      <video id="film" class="film" muted loop playsinline preload="auto"
+      <video id="film" class="film" autoplay muted loop playsinline disablepictureinpicture disableremoteplayback preload="auto"
              poster="media/vildbyn-film-poster.jpg"
              aria-label="Film från en dag med Vildbyn: bastu, korv vid elden, skjutbana, pickup och Volvo 245 på grusvägar i skogen">
         <source src="media/vildbyn-film-720.mp4" type="video/mp4">
@@ -58,17 +58,6 @@
       <span class="hero-oppnar stampel">Öppnar 2027</span>
     </h1>
     <p class="hero-under">Äventyr, butik och bar i Älvdalen</p>
-
-    <div class="filmknappar">
-      <button type="button" class="filmknapp" id="paus" aria-pressed="false" hidden>
-        <svg class="ikon" viewBox="0 0 24 24" aria-hidden="true"><path class="ikon-paus" d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z"/><path class="ikon-spela" d="M7 4.5v15l12.5-7.5z"/></svg>
-        <span class="filmknapp-text">Pausa</span>
-      </button>
-      <button type="button" class="filmknapp" id="ljud" aria-pressed="false">
-        <svg class="ikon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z"/><path class="ikon-vag" d="M15 9.2a4 4 0 0 1 0 5.6M17.6 6.8a7.4 7.4 0 0 1 0 10.4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path class="ikon-kryss" d="M15.5 9.5l5 5m0-5l-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-        <span class="filmknapp-text">Ljud på</span>
-      </button>
-    </div>
   </header>
 
   <main>
@@ -134,12 +123,11 @@
 
   <footer class="fot">
     <p class="fot-rubrik stampel">Vi ses 2027.</p>
-    <!-- VB-SOCIALA: lägg in rätt adresser och ta bort kommentaren runt listan.
+    <!-- VB-SOCIALA -->
     <ul class="fot-lankar">
-      <li><a href="https://www.instagram.com/vildbyn/">Instagram</a></li>
-      <li><a href="https://www.facebook.com/vildbyn/">Facebook</a></li>
+      <li><a href="https://www.instagram.com/vildbyn/">Följ oss på Instagram</a></li>
+      <li><a href="https://www.facebook.com/p/Vildbyn-61592308626265/">Följ oss på Facebook</a></li>
     </ul>
-    -->
     <p class="fot-backwoods">Kan du inte vänta? <a href="https://backwoodsfestival.se/">Backwoods Festival</a> drar igång 15 maj 2027 på Rotsågen.</p>
     <p class="fot-liten">© 2026 Vildbyn, Älvdalen</p>
   </footer>

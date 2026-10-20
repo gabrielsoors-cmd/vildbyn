@@ -10,7 +10,7 @@ Den riktiga hemsidan med webbshop, uthyrning och bokning byggs i Shopify inför 
 | --- | --- |
 | `index.html` | Hela sidan |
 | `css/style.css` | All stil. Färger och typsnitt överst (`:root`) |
-| `js/main.js` | Filmen i toppen: start, paus, ljud, suddig bakgrund på breda skärmar |
+| `js/main.js` | Filmen i toppen: startar direkt, rullar hela tiden, suddig bakgrund på breda skärmar |
 | `media/` | Filmen (`vildbyn-film-720.mp4`), suddig kopia till bakgrunden och stillbilder |
 | `img/` | Logga, bilder (600 och 1200 px, webp), ikoner, delningsbild och stämpeltexturen |
 | `fonts/` | Big Shoulders Display och Zilla Slab, självhostade (OFL-licens) |
@@ -19,15 +19,15 @@ Den riktiga hemsidan med webbshop, uthyrning och bokning byggs i Shopify inför 
 ## Ändra innehåll
 
 - **Aktiviteterna** i listan: sök efter `VB-AVENTYR` i `index.html`. Klasserna `s1`–`s3` styr storleken.
-- **Instagram och Facebook**: sök efter `VB-SOCIALA` i `index.html`, lägg in rätt adresser och ta bort kommentaren runt listan.
+- **Instagram och Facebook**: länkarna i foten, sök efter `VB-SOCIALA` i `index.html`.
 - **Bilderna**: byt filerna i `img/` med samma namn, eller ändra `src`, `srcset` och `alt` i `index.html`. Bilderna är 3:4 stående.
 
 ## Byta filmen
 
-Filmen ska vara stående (9:16). Gör om den med ffmpeg:
+Filmen ska vara stående (9:16) och visas utan ljud. På dator visas den lite inzoomad (2:3), så håll det viktiga i mitten av bilden. Gör om den med ffmpeg:
 
 ```sh
-ffmpeg -i ny-film.mov -vf "scale=720:1280:flags=lanczos,format=yuv420p" -c:v libx264 -preset slow -crf 27 -maxrate 1400k -bufsize 2800k -profile:v high -g 50 -c:a aac -b:a 96k -movflags +faststart media/vildbyn-film-720.mp4
+ffmpeg -i ny-film.mov -vf "scale=720:1280:flags=lanczos,format=yuv420p" -c:v libx264 -preset slow -crf 27 -maxrate 1400k -bufsize 2800k -profile:v high -g 50 -an -movflags +faststart media/vildbyn-film-720.mp4
 ffmpeg -i ny-film.mov -an -vf "scale=144:256,boxblur=6:2,scale=288:512,format=yuv420p" -c:v libx264 -preset slow -crf 30 -g 50 -movflags +faststart media/vildbyn-film-oskarp.mp4
 ffmpeg -i ny-film.mov -frames:v 1 -vf "scale=720:1280" -q:v 4 media/vildbyn-film-poster.jpg
 ```
@@ -43,5 +43,5 @@ Gör det först när sidan är godkänd. Med `CNAME` på plats skickas github.io
 ## Övrigt
 
 - Ingen spårning och inga cookies, så ingen cookie-ruta behövs.
-- Filmen startar ljudlöst och pausar när den inte syns (om ljudet är av). Med "minska rörelse" eller "spara data" på står den still tills besökaren trycker Spela.
+- Filmen har inget ljud och inga knappar. Den vilar när den är utskrollad och drar igång igen när den syns. Med "minska rörelse" eller "spara data" påslaget visas stillbilden.
 - EXIF och GPS är borttaget ur bilderna.
